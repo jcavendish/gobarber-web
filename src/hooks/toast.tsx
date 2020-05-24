@@ -20,7 +20,7 @@ const ToastProvider: React.FC = ({ children }) => {
   const [messages, setMessages] = useState<ToastMessage[]>([]);
 
   const addToast = useCallback((message: Omit<ToastMessage, 'id'>) => {
-    setMessages((state) => {
+    setMessages(state => {
       const toast = {
         id: uuid(),
         title: message.title,
@@ -31,8 +31,8 @@ const ToastProvider: React.FC = ({ children }) => {
     });
   }, []);
 
-  const removeToast = useCallback((id) => {
-    setMessages((state) => state.filter((message) => message.id !== id));
+  const removeToast = useCallback(id => {
+    setMessages(state => state.filter(message => message.id !== id));
   }, []);
 
   return (
