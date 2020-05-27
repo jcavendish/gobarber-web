@@ -1,9 +1,10 @@
 import React, { useState, useCallback, useEffect, useMemo } from 'react';
-import { FiPower, FiClock } from 'react-icons/fi';
+import { FiPower, FiClock, FiUser } from 'react-icons/fi';
 import DayPicker, { DayModifiers } from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
 import { format, isToday, parseISO, isAfter } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
+import { Link } from 'react-router-dom';
 import { useAuth } from '../../hooks/auth';
 
 import logoImg from '../../assets/logo.svg';
@@ -135,10 +136,16 @@ const Dashboard: React.FC = () => {
         <HeaderContent>
           <img src={logoImg} alt="GoBarber" />
           <Profile>
-            <img src={user.avatarUrl} alt={user.name} />
+            {user.avatarUrl ? (
+              <img src={user.avatarUrl} alt={user.name} />
+            ) : (
+              <FiUser size={32} />
+            )}
             <div>
               <span>Bem vindo,</span>
-              <strong>{user.name}</strong>
+              <Link to="/profile">
+                <strong>{user.name}</strong>
+              </Link>
             </div>
           </Profile>
           <button type="button" onClick={signOut}>

@@ -19,20 +19,20 @@ export const Container = styled.div<InputProps>`
   display: flex;
   align-items: center;
 
-  ${(props) =>
+  ${props =>
     props.isErrored &&
     css`
       border-color: #c53030;
     `}
 
-  ${(props) =>
+  ${props =>
     props.isFocused &&
     css`
       border-color: #ff9000;
       color: #ff9000;
     `}
 
-  ${(props) =>
+  ${props =>
     props.isFilled &&
     css`
       color: #ff9000;
