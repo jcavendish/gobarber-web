@@ -44,7 +44,9 @@ const SignIn: React.FC = () => {
       } catch (err) {
         if (err instanceof Yup.ValidationError) {
           formRef.current?.setErrors(validateErrors(err));
+          return;
         }
+
         addToast({
           title: 'Erro no login',
           description:
