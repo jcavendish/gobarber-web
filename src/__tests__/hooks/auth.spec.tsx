@@ -1,4 +1,4 @@
-import { renderHook } from '@testing-library/react-hooks';
+import { renderHook, act } from '@testing-library/react-hooks';
 import MockAdapter from 'axios-mock-adapter';
 import { useAuth, AuthProvider } from '../../hooks/auth';
 import api from '../../services/api';
@@ -64,5 +64,35 @@ describe('Auth Hook', () => {
     });
 
     expect(result.current.user.email).toBe('johndoe@example.com');
+  });
+
+  it('should be able to sign out', () => {
+    const removeItemSpy = jest.spyOn(Storage.prototype, 'removeItem');
+
+    jest.spyOn(Storage.prototype, 'getItem').mockImplementation(key => {
+      switch (key) {
+        case '@GoBarber:token':
+          return 'user-token-123';
+        case '@GoBarber:user':
+          return JSON.stringify({
+            id: 'user-123',
+            name: 'John Doe',
+            email: 'johndoe@example.com',
+          });
+        default:
+          return null;
+      }
+    });
+
+    const { result } = renderHook(() => useAuth(), {
+      wrapper: AuthProvider,
+    });
+
+    act(() => {
+      result.current.signOut();
+    });
+
+    expect(removeItemSpy).toHaveBeenCalledTimes(2);
+    expect(result.current.user).toBeUndefined();
   });
 });
