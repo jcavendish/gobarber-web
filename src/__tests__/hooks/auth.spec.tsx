@@ -42,4 +42,27 @@ describe('Auth Hook', () => {
 
     expect(result.current.user.email).toBe('johndoe@example.com');
   });
+
+  it('should get data form storage when authentication initiates', async () => {
+    jest.spyOn(Storage.prototype, 'getItem').mockImplementation(key => {
+      switch (key) {
+        case '@GoBarber:token':
+          return 'user-token-123';
+        case '@GoBarber:user':
+          return JSON.stringify({
+            id: 'user-123',
+            name: 'John Doe',
+            email: 'johndoe@example.com',
+          });
+        default:
+          return null;
+      }
+    });
+
+    const { result } = renderHook(() => useAuth(), {
+      wrapper: AuthProvider,
+    });
+
+    expect(result.current.user.email).toBe('johndoe@example.com');
+  });
 });
