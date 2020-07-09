@@ -37,9 +37,9 @@
   "jest": {
     "collectCoverageFrom": [
       "src/pages/**/*.tsx",
-      "src/components/**/*.ts",
+      "src/components/**/*.tsx",
       "src/hooks/*.tsx",
-      "!src/hook/index.tsx"
+      "!src/hooks/index.tsx"
     ]
   },
   "browserslist": {
