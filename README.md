@@ -9,61 +9,60 @@
 ---
 
 ## 🗒Sobre
+**GoBarber** is a platform where barbers publish their services so clients find these barbers and make appointments with them. The application manages all the barber's schedule, and the client is only able to create a new appointment within the available hours.
 
-O **GoBarber Web** é um projeto front-end criado junto com a **Rocketseat** para praticar o conteúdo passado no **Bootcamp GoStack**.
+**GoBarber Web** is a ReactJS interface to interact with barbers. It is the professional panel where barbers can see their next appointments.
 
-O **GoBarber** é uma aplicação onde clientes podem encontrar profissionais de barbearia e agendar um serviço.
 
-Para saber mais sobre o back-end desse app visite o [repositório gostack-gobarber]('https://github.com/jcavendish/gostack-gobarber')
-
----
-
-## 🔧Funcionalidades
-
-O aplicativo deve ser capaz de prover as seguintes funcionalidades:
-
-- Registro de novos usuários
-- Login de usuários registrados
-- Listagem de profissionais cadastrados
-- Mostrar mais detalhes dos profissionais
-- Configurar perfil de profissionais
-- Agendar horário entre clientes e profissionais
+The backend of this project can be found here [repositório gostack-gobarber]('https://github.com/jcavendish/gostack-gobarber')
 
 ---
 
-## 🎮Tecnologias utilizadas
+## 🔧Functionalities
 
-Nesse projeto foram utilizadas as seguintes tecnologias:
+The app should be able to provide the following pages:
+
+- Sign-in page, where a registered user may log into the app
+- Sign-up page, to create user accounts
+- Forgot my password
+- Professional's dashboard
+- Modify professional's profile
+
+---
+
+## 🎮The chosen tech stack
+
+The following techs were used to build this project:
 
 - React
 - Typescript
-- React router dom
+- React-router-dom
 - Axios
-- Styled Components
+- Styled-Components
 - Polished
 - Yup
 - Uuidv4
 
 ---
 
-## 📝Instruções para instalação
+## 📝Installation instructions
 
-Para rodar o app em sua máquina, abra seu terminal e siga as instruções abaixo:
+To be able to run the app in your machine, open your terminal and do the following steps:
 
 ```bash
-  # Faça um clone do repositório git
+  # Clone git repo
   git clone https://github.com/jcavendish/gobarber-web.git
 
-  # Acesse o deretório recém criado
+  # Access the created directory
   cd gobarber-web
 
-  # Instale as dependências
+  # Install the dependencies
   yarn install
 
-  # Rode a aplicação em localhost
+  # Run the app in localhost
   yarn start
 ```
 
 ---
 
-Feito por João Paulo Cavendish 🧡
+Made by João Paulo Cavendish 🚀
